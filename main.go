@@ -2,6 +2,7 @@ package main
 
 import (
 	cronJobs "dataForecast/utils/cronJobs"
+	fUtils "dataForecast/utils/files"
 	"fmt"
 )
 
@@ -25,5 +26,9 @@ var albums = []album{
 func main() {
 	fmt.Println("A cron job")
 
+	// 1 - read json with locations
+	fUtils.ReadLocations()
+
+	// 2 - init cron jobs
 	cronJobs.InitCronJobs()
 }
