@@ -18,7 +18,7 @@ func ReadLocations() {
 	fmt.Println("Successfully Opened locations.json")
 
 	// print file content
-	println(jsonFile.)
+	println(jsonFile)
 
 	// defer the closing of our jsonFile so that we can parse it later on
 	defer jsonFile.Close()

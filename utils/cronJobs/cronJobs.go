@@ -16,7 +16,8 @@ func InitCronJobs() {
 	s.Every(30).Seconds().Do(func() {
 		println("every 10 seconds print cron")
 
-		resp, err := http.Get("https://api.openweathermap.org/data/2.5/weather?q=lourinha&appid=62d2c58c3bf1cda8c560ff1a7606e232&units=metric")
+		// TODO - add coordenates
+		resp, err := http.Get("https://www.7timer.info/bin/api.pl?lon=-9.29&lat=39.25&product=two&output=json")
 		if err != nil {
 			log.Fatalln(err)
 		}
