@@ -28,6 +28,7 @@ func ReadLocationsRaw() {
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 
+	// declare an interface
 	var result map[string]interface{}
 	json.Unmarshal([]byte(byteValue), &result)
 
@@ -65,8 +66,5 @@ func ReadLocationsParsed4Strut() {
 	// print out the locations details
 	for i := 0; i < len(locations.Locations); i++ {
 		fmt.Println("User Type: " + locations.Locations[i].Name)
-		//fmt.Println("User Age: " + strconv.Itoa(users.Users[i].Age))
-		//fmt.Println("User Name: " + users.Users[i].Name)
-		//fmt.Println("Facebook Url: " + users.Users[i].Social.Facebook)
 	}
 }
