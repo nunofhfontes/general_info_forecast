@@ -67,4 +67,10 @@ func ReadLocationsParsed4Strut() {
 	for i := 0; i < len(locations.Locations); i++ {
 		fmt.Println("User Type: " + locations.Locations[i].Name)
 	}
+
+	mapOfLocationAndPeople := make(map[string][]string)
+	println(mapOfLocationAndPeople)
+
+	mapOfLocationAndWeatherStatement := make(map[string][]string)
+	println(mapOfLocationAndWeatherStatement)
 }
