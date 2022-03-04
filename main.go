@@ -5,27 +5,30 @@ import (
 	//fUtils "dataForecast/utils/files"
 	"fmt"
 
+	middleware "dataForecast/middleware"
+	router "dataForecast/utils/router"
 	serverUtils "dataForecast/utils/server"
 )
 
 func main() {
 	fmt.Println("Initializing REST API...")
 
+	// New Fiber
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World 👋!")
-	})
+	// Register Middleware
+	middleware.AppMiddleware(app)
 
+	// Register Router
+	router.RegisterRouter(app)
+
+	// testing purposes method chaining
+	routerRegister := router.RouterRegistry{}
+	routerRegister.
+		RegisterPublicRoutes("public").
+		RegisterPrivateRoutes("private").
+		RegisterNotFoundRoute("NotFOund")
+
+	// Start Server
 	serverUtils.StartServer(app)
 }
-
-// TODO  - realocate for other files
-// 1 - read json with locations converting to a raw variable
-//fUtils.ReadLocationsRaw()
-
-// 2 - read json with locations parsing info to struts
-//fUtils.ReadLocationsParsed4Strut()
-
-// 2 - init cron jobs
-//cronJobs.InitCronJobs()

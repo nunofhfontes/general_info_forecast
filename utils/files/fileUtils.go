@@ -74,3 +74,13 @@ func ReadLocationsParsed4Strut() {
 	mapOfLocationAndWeatherStatement := make(map[string][]string)
 	println(mapOfLocationAndWeatherStatement)
 }
+
+// TODO - call this
+// 1 - read json with locations converting to a raw variable
+//fUtils.ReadLocationsRaw()
+
+// 2 - read json with locations parsing info to struts
+//fUtils.ReadLocationsParsed4Strut()
+
+// 2 - init cron jobs
+//cronJobs.InitCronJobs()
