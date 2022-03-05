@@ -12,5 +12,10 @@ func AppMiddleware(a *fiber.App) {
 		cors.New(),
 		// Add logger
 		logger.New(),
+
+		// FIXME - testing new logger format
+		// logger.New(logger.Config{
+		// 	Format: "[${ip}]:${port} ${status} - ${method} ${path}\n",
+		// }),
 	)
 }
