@@ -16,9 +16,12 @@ func RegisterRouter(app *fiber.App) {
 type RouterRegistry struct {
 }
 
-func (s *RouterRegistry) RegisterPublicRoutes(str string) *RouterRegistry {
+func (s *RouterRegistry) RegisterPublicRoutes(app *fiber.App, str string) *RouterRegistry {
 
 	fmt.Println("Registering Public Routes, str: ", str)
+
+	// the desired action
+	PublicRoutes(app)
 
 	return s
 }

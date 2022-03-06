@@ -9,6 +9,10 @@ import (
 func Login(c *fiber.Ctx) error {
 	fmt.Println("Should do Login")
 
+	// For testing purposes- testing centralized Error Handling
+	// 503 On vacation!
+	//return fiber.NewError(fiber.StatusServiceUnavailable, "On vacation!")
+
 	// Return status 200 OK.
 	return c.JSON(fiber.Map{
 		"error":       false,
