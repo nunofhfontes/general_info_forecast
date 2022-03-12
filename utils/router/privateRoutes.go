@@ -1,16 +1,17 @@
 package router
 
 import (
-	userController "dataForecast/controllers"
+	quoteController "dataForecast/controllers"
 
 	"github.com/gofiber/fiber/v2"
 )
 
-func PublicRoutes(app *fiber.App) {
+func PrivateRoutes(app *fiber.App) {
+
 	// Create routes group.
 	route := app.Group("/api/v1")
 
-	route.Get("/login", userController.Login)
+	route.Get("/quote", quoteController.GetQuote)
 
 	// route.Get("/login", controllers.Login) // get list of all books
 

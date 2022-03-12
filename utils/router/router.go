@@ -26,9 +26,12 @@ func (s *RouterRegistry) RegisterPublicRoutes(app *fiber.App, str string) *Route
 	return s
 }
 
-func (s *RouterRegistry) RegisterPrivateRoutes(str string) *RouterRegistry {
+func (s *RouterRegistry) RegisterPrivateRoutes(app *fiber.App, str string) *RouterRegistry {
 
 	fmt.Println("Registering Private Routes, str: ", str)
+
+	// the desired action
+	PrivateRoutes(app)
 
 	return s
 }
