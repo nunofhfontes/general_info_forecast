@@ -36,7 +36,7 @@ func main() {
 	routerRegister := router.RouterRegistry{}
 	routerRegister.
 		RegisterPublicRoutes(app, "public").
-		RegisterPrivateRoutes("private").
+		RegisterPrivateRoutes(app, "private").
 		RegisterNotFoundRoute("NotFOund")
 
 	// Start Server

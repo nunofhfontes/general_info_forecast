@@ -2,6 +2,7 @@ package router
 
 import (
 	quoteController "dataForecast/controllers"
+	middleware "dataForecast/middleware"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -11,7 +12,8 @@ func PrivateRoutes(app *fiber.App) {
 	// Create routes group.
 	route := app.Group("/api/v1")
 
-	route.Get("/quote", quoteController.GetQuote)
+	route.Get("/quote", middleware.JWTProtected(), quoteController.GetQuote)
+	// route.Get("/quote", quoteController.GetQuote)
 
 	// route.Get("/login", controllers.Login) // get list of all books
 
