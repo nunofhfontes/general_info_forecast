@@ -23,6 +23,11 @@ func main() {
 	// New Fiber
 	app := fiber.New(config)
 
+	app.Static(
+		"/static",  // mount address
+		"./public", // path to the file folder
+	)
+
 	// recovers from panics anywhere in the stack chain and handles the control to the centralized ErrorHandler.
 	app.Use(recover.New())
 
