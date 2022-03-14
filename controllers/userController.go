@@ -5,16 +5,21 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 
+	datamodels "dataForecast/models"
 	authUtils "dataForecast/utils/auth"
 )
 
 func Login(c *fiber.Ctx) error {
 	fmt.Println("Should do Login")
 
-	user := c.FormValue("user")
-	pass := c.FormValue("password")
-	println("user: ", user)
-	println("password: ", pass)
+	// user := c.FormValue("user")
+	// pass := c.FormValue("password")
+
+	payload := datamodels.AuthInfo{}
+	c.BodyParser(&payload)
+
+	println("user: ", payload.User)
+	println("password: ", payload.Password)
 
 	// 1 - get data from DB
 
@@ -34,6 +39,11 @@ func Login(c *fiber.Ctx) error {
 		"info":        "general info",
 		"anotherInfo": "another info",
 	})
+}
+
+func Register(c *fiber.Ctx) error {
+
+	return fiber.NewError(fiber.StatusServiceUnavailable, "Register is not Working yet!")
 }
 
 func DoLogout() {

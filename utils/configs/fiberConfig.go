@@ -24,7 +24,9 @@ func ConfigFiber() fiber.Config {
 			// Set Content-Type: application/json; charset=utf-8
 			ctx.Set(fiber.HeaderContentType, fiber.MIMEApplicationJSONCharsetUTF8)
 
-			err = ctx.Status(code).SendString("Experimental Error String.")
+			// FIXME - must return an entire JSON struct, with error messaged, code, etc etc
+			err = ctx.Status(code).SendString(err.Error())
+			// err = ctx.Status(code).SendString(err.Error())
 			if err != nil {
 				return err
 			}

@@ -1,9 +1,11 @@
 package datamodels
 
 type AuthInfo struct {
-	Name  string
-	role  string
-	admin bool
+	User     string
+	Password string
+	Name     string
+	Role     string
+	Admin    bool
 
 	// TODO - add more info
 }
