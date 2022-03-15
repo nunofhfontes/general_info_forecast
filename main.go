@@ -11,11 +11,15 @@ import (
 	router "dataForecast/utils/router"
 	serverUtils "dataForecast/utils/server"
 
+	db "dataForecast/db"
 	fiberConfig "dataForecast/utils/configs"
 )
 
 func main() {
 	fmt.Println("Initializing REST API...")
+
+	// Initialize DB
+	db.InitDB()
 
 	// Define Fiber config.
 	config := fiberConfig.ConfigFiber()
