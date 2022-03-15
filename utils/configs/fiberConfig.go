@@ -1,6 +1,9 @@
 package fiberConfig
 
 import (
+	datamodels "dataForecast/models"
+	"strconv"
+
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -24,8 +27,8 @@ func ConfigFiber() fiber.Config {
 			// Set Content-Type: application/json; charset=utf-8
 			ctx.Set(fiber.HeaderContentType, fiber.MIMEApplicationJSONCharsetUTF8)
 
-			// FIXME - must return an entire JSON struct, with error messaged, code, etc etc
-			err = ctx.Status(code).SendString(err.Error())
+			// Returning an entire JSON struct, ErrorResponse, with error messaged, code, etc etc
+			err = ctx.Status(code).JSON(datamodels.ErrorResponse{strconv.Itoa(code), err.Error()})
 			// err = ctx.Status(code).SendString(err.Error())
 			if err != nil {
 				return err
