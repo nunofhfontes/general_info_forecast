@@ -12,6 +12,10 @@ import (
 func Login(c *fiber.Ctx) error {
 	fmt.Println("Should do Login")
 
+	// For testing purposes- testing centralized Error Handling
+	// 503 On vacation!
+	//return fiber.NewError(fiber.StatusServiceUnavailable, "Testing Error MessageXYZ!")
+
 	// user := c.FormValue("user")
 	// pass := c.FormValue("password")
 

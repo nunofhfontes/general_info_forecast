@@ -10,6 +10,7 @@ import (
 func JWTProtected() func(*fiber.Ctx) error {
 	// Create config for JWT authentication middleware.
 	config := jwtMiddleware.Config{
+		// FIXME - Get secret from env file
 		SigningKey:   []byte(os.Getenv("secret")), //JWT_SECRET_KEY
 		ContextKey:   "jwt",                       // used in private routes
 		ErrorHandler: jwtError,
