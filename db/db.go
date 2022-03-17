@@ -7,6 +7,10 @@ import (
 	_ "github.com/jmrobles/h2go"
 )
 
+var (
+	Conn *sql.DB
+)
+
 func InitDB() {
 	conn, err := sql.Open("h2", "h2://sa@localhost/testdb?mem=true")
 	if err != nil {

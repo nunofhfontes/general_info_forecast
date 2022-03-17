@@ -13,7 +13,6 @@ func PrivateRoutes(app *fiber.App) {
 	route := app.Group("/api/v1")
 
 	route.Get("/quote", middleware.JWTProtected(), quoteController.GetQuote)
-	// route.Get("/quote", quoteController.GetQuote)
 
 	// route.Get("/login", controllers.Login) // get list of all books
 

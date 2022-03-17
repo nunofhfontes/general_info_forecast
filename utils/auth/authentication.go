@@ -10,10 +10,12 @@ import (
 func CreateJwt() {
 
 	// Create the Claims
+	// FIXME - it's mock data
 	claims := jwt.MapClaims{
 		"name":  "John Doe",
 		"admin": true,
 		"exp":   time.Now().Add(time.Hour * 72).Unix(),
+		// claims["exp"] = time.Now().Add(time.Minute * time.Duration(minutesCount)).Unix()
 	}
 
 	// Create token
