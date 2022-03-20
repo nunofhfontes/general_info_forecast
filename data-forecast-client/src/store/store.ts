@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit'
 const store = configureStore({
   reducer: {
     // weather: weatherReducer,
-    users: usersReducer,
+    //users: usersReducer,
     // stocks: stocksReducer
   }
 })
