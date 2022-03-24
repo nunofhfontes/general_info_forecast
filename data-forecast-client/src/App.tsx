@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import LoginForm from './components/LoginForm';
 import {useSelector} from 'react-redux';
 import AuthModel from './models/authModel';
 import { RootState } from './store/store';
@@ -31,14 +30,17 @@ const App: React.FC<Props> = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Login />}>
-          <Route index element={<Home />} />
-          {/* <Route path="about" element={<About />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="*" element={<NoMatch />} /> */}
-        </Route>
+        <Route path="/" element={<Login />} />
+        <Route path="home" element={<Home />} />
       </Routes>
-      <Outlet />
+
+      {/* <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="*" element={<NoMatch />} />
+      </Route>
+      <Outlet /> */}
     </>
   );
 }

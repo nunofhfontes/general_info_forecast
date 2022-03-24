@@ -9,6 +9,9 @@ import { BrowserRouter } from "react-router-dom";
 // const { Provider } = require('react-redux');
 import { Provider } from 'react-redux';
 
+// Importing the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
