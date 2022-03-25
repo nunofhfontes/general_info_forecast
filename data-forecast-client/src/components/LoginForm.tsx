@@ -34,16 +34,19 @@ const LoginForm: React.FC<Props> = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="name"/>
-                <input type="text" placeholder="address" />
-                {/* <button onClick={goHome}> Go Home </button> */}
-                <button> Submit </button>
+                <div className="input-group mb-3">
+                    <span className="input-group-text" id="basic-addon1">@</span>
+                    <input type="text" className="form-control" placeholder="Username" 
+                    aria-label="Username" aria-describedby="basic-addon1" />
+                </div>
+                <div className="input-group mb-3">
+                    <span className="input-group-text" id="inputGroup-sizing-default">Password</span>
+                    <input type="password" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+                </div>
+                <ButtonToolbar className="custom-btn-toolbar d-flex justify-content-center">
+                    <Button type="submit">Submit</Button>
+                </ButtonToolbar>
             </form>
-            <ButtonToolbar className="custom-btn-toolbar">
-                <Button>Home</Button>
-                <Button>About</Button>
-                <Button>Users</Button>
-            </ButtonToolbar>
         </>
     )
 };
