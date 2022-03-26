@@ -1,17 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import authReducer from "./auth"
+import authenticationReducer from "./authSlice"
 
 const store = configureStore({
   reducer: {
     // weather: weatherReducer,
     //users: usersReducer,
     // stocks: stocksReducer
-    auth: authReducer
+    auth: authenticationReducer
   }
 })
 
+export default store;
+
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {weather: WeatherState, stocks: StocksState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
