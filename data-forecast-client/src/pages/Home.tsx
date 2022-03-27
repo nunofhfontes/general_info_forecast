@@ -1,4 +1,4 @@
-import { Container, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 
@@ -28,8 +28,13 @@ const Home: React.FC<Props> = () => {
                         height="30"
                         className="navbar-logo d-inline-block align-top"
                         />{' '}
-                         Data Forecast App
+                        Data Forecast App
                     </Navbar.Brand>
+                    <Nav className="me-auto">
+                        <Nav.Link href="/home">Home</Nav.Link>
+                        <Nav.Link href="/portfolio">Portfolio</Nav.Link>
+                        <Nav.Link href="/targets">Targets</Nav.Link>
+                    </Nav>
                 </Container>
             </Navbar>
             Home Page

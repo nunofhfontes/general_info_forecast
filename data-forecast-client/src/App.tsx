@@ -10,6 +10,8 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 import Login from './pages/Login'
 import Home from './pages/Home'
+import Portfolio from './pages/Portfolio'
+import Targets from './pages/Targets'
 
 interface Props {
 }
@@ -32,6 +34,8 @@ const App: React.FC<Props> = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="home" element={<Home />} />
+        <Route path="portfolio" element={<Portfolio />} />
+        <Route path="targets" element={<Targets />} />
       </Routes>
 
       {/* <Route path="/" element={<Layout />}>
