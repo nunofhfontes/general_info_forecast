@@ -3,6 +3,9 @@ package main
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/joho/godotenv"
+	"log"
+	"os"
 
 	//fUtils "dataForecast/utils/files"
 	"fmt"
@@ -16,6 +19,13 @@ import (
 )
 
 func main() {
+
+	// Load env variables
+	// godotenv package
+	dotenv := goDotEnvVariable("BD_URL")
+	fmt.Printf("godotenv : %s = %s \n", "BD_URL", os.Getenv("BD_URL"))
+	fmt.Printf("godotenv os.getenv: %s = %s \n", "BD_URL", dotenv)
+
 	fmt.Println("Initializing REST API...")
 
 	// Initialize DB
@@ -50,4 +60,18 @@ func main() {
 
 	// Start Server
 	serverUtils.StartServer(app)
+}
+
+// use godot package to load/read the .env file and
+// return the value of the key
+func goDotEnvVariable(key string) string {
+
+	// load .env file
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
+	return os.Getenv(key)
 }
