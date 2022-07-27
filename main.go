@@ -27,8 +27,6 @@ func main() {
 	// New Fiber
 	app := fiber.New(config)
 
-	// test commit and push
-
 	app.Static(
 		"/static",  // mount address
 		"./public", // path to the file folder
