@@ -1,0 +1,10 @@
+# config.yaml
+APP:
+  TITLE: TraderFactory Portfolio API
+
+DB:
+  HOST: "localhost"
+  PORT: "27017"
+  USERNAME: "admin"
+  PASWORD: "password"
+  NAME: "testdb"
