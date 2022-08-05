@@ -20,11 +20,16 @@ import (
 
 func main() {
 
-	// Load env variables
-	// godotenv package
-	dotenv := goDotEnvVariable("BD_URL")
-	fmt.Printf("godotenv : %s = %s \n", "BD_URL", os.Getenv("BD_URL"))
-	fmt.Printf("godotenv os.getenv: %s = %s \n", "BD_URL", dotenv)
+	newConfig, err := fiberConfig.LoadConfig(".")
+	if err != nil {
+		log.Fatal("cannot load config:", err)
+	}
+	fmt.Printf("new config : %s = %s \n", "Migration URL", newConfig.MigrationURL)
+
+	db.InitCockroachDB(newConfig)
+
+	//get config file and config application
+	fiberConfig.GetAndConfigApp()
 
 	fmt.Println("Initializing REST API...")
 
