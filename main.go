@@ -34,7 +34,7 @@ func main() {
 	fmt.Println("Initializing REST API...")
 
 	// Initialize DB
-	db.InitDB()
+	//db.InitDB()
 
 	// Define Fiber config.
 	config := fiberConfig.ConfigFiber()
