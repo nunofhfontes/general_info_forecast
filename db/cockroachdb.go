@@ -5,21 +5,10 @@ import (
 	"fmt"
 	"log"
 	"strconv"
-	"time"
 	"xorm.io/xorm"
 
 	_ "github.com/lib/pq"
 )
-
-type User struct {
-	Id      int64
-	Name    string
-	Salt    string
-	Age     int
-	Passwd  string    `xorm:"varchar(200)"`
-	Created time.Time `xorm:"created"`
-	Updated time.Time `xorm:"updated"`
-}
 
 func InitCockroachDB(config fiberConfig.Config) {
 
