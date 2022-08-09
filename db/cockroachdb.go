@@ -43,24 +43,34 @@ func InitCockroachDB(config fiberConfig.Config) {
 	fmt.Printf("\ntrying to insert a user \n\n")
 
 	type User struct {
-		Id       int64
-		Username string
+		Id    int64
+		Email string
+		//Username string
+		Name string
+		//FirstName int64 `xorm:"first_name"`
+		//LastName  int64 `xorm:"last_name"`
 		//Name     string
 		//Salt     string
 		//Age      int
 		Password string `xorm:"varchar(200)"`
+		//AccountId int64  `xorm:"account_id"`
 		//AccountId int64
 		//Created  time.Time `xorm:"created"`
 		//Updated  time.Time `xorm:"updated"`
 	}
 
+	type Test struct {
+		Id    int64
+		Descr string
+	}
+
 	var existingUser User
 
 	has, err := engine.Get(&existingUser)
-	// SELECT * FROM user LIMIT 1
+	// SELECT * FROM user LIMIT 1public
 	fmt.Printf("\n Has user?: %t \n\n", has)
 
-	fmt.Printf("\n Has user? existing user ->   %s \n\n", existingUser.Username)
+	fmt.Printf("\n Has user? existing user ->   %s \n\n", existingUser.Name)
 
 	has1, err := engine.Where("username = ?", "nunofhfontes").Desc("id").Get(&existingUser)
 	// SELECT * FROM user WHERE name = ? ORDER BY id DESC LIMIT 1
@@ -68,8 +78,22 @@ func InitCockroachDB(config fiberConfig.Config) {
 
 	fmt.Printf("\n Has user1? existing user ->   %s \n\n", existingUser.Password)
 
-	user := User{Username: "xiaoxiao", Password: "lunny"} // , Created: time.Now()
+	user := User{
+		Name:     "xiaoxiao",
+		Email:    "nunof.h.fontes@gmail.com",
+		Password: "lunny",
+		//AccountId: 1} // , Created: time.Now()
+	}
+
 	affected, err := engine.Insert(&user)
 
 	fmt.Printf("\n Affected rows: %d \n\n", affected)
+
+	testVar := Test{
+		Id:    110,
+		Descr: "a new variable - override",
+	}
+	affectedTest, err := engine.Insert(&testVar)
+
+	fmt.Printf("\n Affected test rows: %d \n\n", affectedTest)
 }
