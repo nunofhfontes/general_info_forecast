@@ -72,16 +72,16 @@ func InitCockroachDB(config fiberConfig.Config) {
 
 	fmt.Printf("\n Has user? existing user ->   %s \n\n", existingUser.Name)
 
-	has1, err := engine.Where("username = ?", "nunofhfontes").Desc("id").Get(&existingUser)
+	has1, err := engine.Where("name = ?", "xiaoxiao").Desc("id").Get(&existingUser)
 	// SELECT * FROM user WHERE name = ? ORDER BY id DESC LIMIT 1
 	fmt.Printf("\n Has user1?: %t \n\n", has1)
 
 	fmt.Printf("\n Has user1? existing user ->   %s \n\n", existingUser.Password)
 
 	user := User{
-		Name:     "xiaoxiao",
-		Email:    "nunof.h.fontes@gmail.com",
-		Password: "lunny",
+		Name:     "Nuno",
+		Email:    "nunoZEDfontes@gmail.com",
+		Password: "hferfherifnrej",
 		//AccountId: 1} // , Created: time.Now()
 	}
 
