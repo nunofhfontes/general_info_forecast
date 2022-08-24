@@ -1,6 +1,7 @@
 package main
 
 import (
+	quoteService "dataForecast/services"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/joho/godotenv"
@@ -19,6 +20,8 @@ import (
 )
 
 func main() {
+
+	quoteService.GetQuote()
 
 	newConfig, err := fiberConfig.LoadConfig(".")
 	if err != nil {
@@ -65,6 +68,7 @@ func main() {
 
 	// Start Server
 	serverUtils.StartServer(app)
+
 }
 
 // use godot package to load/read the .env file and
