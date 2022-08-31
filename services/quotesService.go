@@ -5,7 +5,9 @@ import (
 	model "dataForecast/models"
 	"fmt"
 	"github.com/carlmjohnson/requests"
+	"io/ioutil"
 	"log"
+	"net/http"
 )
 
 func GetQuote() {
@@ -24,4 +26,23 @@ func GetQuote() {
 	log.Println("After Data Fetch")
 
 	log.Println("result: ", financialData.Name)
+
+}
+
+func TestGetStockPriceFinModPre() {
+	url := "https://financialmodelingprep.com/api/v3/quote/AAPL,FB?apikey=a12a1c9244f3a11dfdb9de8a3b5f7bdc"
+	response, err := http.Get(url)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer response.Body.Close()
+
+	responseData, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	responseString := string(responseData)
+
+	fmt.Println("===> " + responseString)
 }
