@@ -9,4 +9,7 @@ type Security struct {
 	CurrentValue float64   `xorm:"INT not null unique 'current_value' "`
 	Created      time.Time `xorm:"created"`
 	Updated      time.Time `xorm:"updated"`
+
+	//TODO
+	// HOW TO TRACK Security value, how to keep historical price??
 }

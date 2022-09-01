@@ -10,4 +10,7 @@ type Portfolio struct {
 	// slight slower to input, but faster to process from that point, since input will not be that frequent...
 	Created time.Time `xorm:"created"`
 	Updated time.Time `xorm:"updated"`
+
+	//TODO
+	// HOW TO TRACK portfolio value, how to keep historical price??
 }
